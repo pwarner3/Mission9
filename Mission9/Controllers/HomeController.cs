@@ -12,10 +12,12 @@ namespace Mission9.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private IBookstoreRepository repo;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IBookstoreRepository temp)
         {
             _logger = logger;
+            repo = temp;
         }
 
 
