@@ -18,7 +18,12 @@ namespace Mission9.Controllers
             _logger = logger;
         }
 
+
         public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult DisplayBooks()
         {
             return View();
         }
