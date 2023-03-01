@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Mission9.Models
 {
-    interface IBookstoreRepository
+    public interface IBookstoreRepository
     {
         //Similar to a list but to only read data in a better way
         IQueryable<Book> Books { get; }
