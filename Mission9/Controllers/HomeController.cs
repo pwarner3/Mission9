@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Mission9.Models;
+using Mission9.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -25,9 +26,25 @@ namespace Mission9.Controllers
         {
             return View();
         }
-        public IActionResult DisplayBooks()
+        public IActionResult DisplayBooks(int pageNum = 1)
         {
-            return View();
+            int pageSize = 10;
+            var model = new BooksViewModel
+            {
+                Books = repo.Books
+                .OrderBy(x => x.Title)
+                .Skip((pageNum-1)*10)
+                .Take(pageSize),
+
+                PageInfo = new PageInfo
+                {
+                    TotalNumProjects = repo.Books.Count(),
+                    ProjectsPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+            };
+
+            return View(model);
         }
 
 
