@@ -1,5 +1,16 @@
 ﻿@{
 }
-
+@model BooksViewModel
 <h1>Books</h1>
 
+@foreach (var b in Model.Books)
+{
+	 <h3>@b.Title</h3>
+     <ul>
+         <li>Price: $@b.Price</li>
+         <li>Author: @b.Author</li>
+         <li>Publisher: @b.Publisher</li>
+         <li>Category: @b.Category</li>
+         <li>Page Count: @b.PageCount</li>
+     </ul>
+}

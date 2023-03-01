@@ -33,7 +33,7 @@ namespace Mission9.Controllers
             {
                 Books = repo.Books
                 .OrderBy(x => x.Title)
-                .Skip((pageNum-1)*10)
+                .Skip((pageNum-1) * pageSize)
                 .Take(pageSize),
 
                 PageInfo = new PageInfo
