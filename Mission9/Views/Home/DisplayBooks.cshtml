@@ -3,7 +3,7 @@
 @model BooksViewModel
 <h1>Books</h1>
 
-<div></div>
+<div page-model="@Model.PageInfo" page-action="DisplayBooks"></div>
 
 @foreach (var b in Model.Books)
 {
