@@ -33,6 +33,8 @@ namespace Mission9
             });
 
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,15 +53,21 @@ namespace Mission9
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            // Used for sessions
+            app.UseSession();
+
             app.UseRouting();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute("CategoryPage", "{controller=Home}/{action=DisplayBooks}/{bookCategory}/Page{pageNum}", new{Controller = "Home", action = "DisplayBooks" });
+                endpoints.MapControllerRoute("Paging", "{controller=Home}/{action=DisplayBooks}/Page{pageNum}", new{Controller = "Home", action = "DisplayBooks", pageNum = 1 });
+                endpoints.MapControllerRoute("Category", "{controller=Home}/{action=DisplayBooks}/{bookCategory}", new { Controller = "Home", action = "DisplayBooks", pageNum = 1 });
+
+
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
