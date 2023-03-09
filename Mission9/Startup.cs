@@ -34,6 +34,9 @@ namespace Mission9
 
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
 
+            services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
             services.AddSession();
         }
 
@@ -68,6 +71,8 @@ namespace Mission9
 
 
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
         }
     }
