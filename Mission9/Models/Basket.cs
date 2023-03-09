@@ -31,7 +31,13 @@ namespace Mission9.Models
 
         public double CalculateTotal()
         {
-            double sum = Items.Sum(x => x.Quantity * 25);
+            double sum = 0.0;
+
+            foreach (var i in Items)
+            {
+                sum += i.Quantity * i.Book.Price;
+            }
+
 
             return sum;
         }
