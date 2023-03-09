@@ -2,12 +2,14 @@
 }
 @model IEnumerable<string>
 
-<div class="d-grid gap-2">
-    <a asp-controller="Home" asp-action="Index" asp-route-projectType="" asp-route-pageNum="1" class="btn btn-outline-secondary">Home</a>
-
-    @foreach (string t in Model)
-    {
-        <a asp-controller="Home" asp-action="DisplayBooks" asp-route-bookCategory="@t" asp-route-pageNum="1"
-           class="@(ViewBag.SelectedCategory == t ? "btn btn-primary" : "btn btn-outline-secondary")">@t</a>
-    }
+<div class="row m-1 p-1">
+        <a asp-controller="Home" asp-action="Index" asp-route-projectType="" asp-route-pageNum="1" class="btn btn-block btn-outline-secondary">Home</a>
 </div>
+
+@foreach (string t in Model)
+{
+    <div class="row m-1 p-1">
+        <a asp-controller="Home" asp-action="DisplayBooks" asp-route-bookCategory="@t" asp-route-pageNum="1"
+           class="@(ViewBag.SelectedCategory == t ? "btn btn-block btn-primary" : "btn btn-block btn-outline-secondary")">@t</a>
+    </div>
+}

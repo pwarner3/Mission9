@@ -2,11 +2,15 @@
 }
 @model BooksViewModel
 
-<div class="bg-dark text-white p-2">
-    <span class="navbar-brand ml-2">BOOKS LIST</span>
-</div>
 <div class="row m-1 p-1">
-    <div id="categories" class="col-3">
+    <div class="col-3">
+        <h2>Books List</h2>
+    </div>
+</div>
+
+
+<div class="row m-1 p-1">
+    <div id="categories" class="col-3 text-center">
         <vc:categories></vc:categories>
     </div>
 
@@ -19,11 +23,9 @@
 
         @* Generate pagination *@
         <div page-model="@Model.PageInfo" page-action="DisplayBooks" page-classes-enabled="true"
-             page-class="btn" page-class-normal="btn-outline-dark"
-             page-class-selected="btn-primary" class="btn-group pull-right m-1">
+                page-class="btn" page-class-normal="btn-outline-dark"
+                page-class-selected="btn-primary" class="btn-group pull-right m-1">
         </div>
 
     </div>
 </div>
-
-
