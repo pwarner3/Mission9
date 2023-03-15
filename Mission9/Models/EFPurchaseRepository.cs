@@ -9,6 +9,11 @@ namespace Mission9.Models
     public class EFPurchaseRepository : IPurchaseRepository
     {
         private BookstoreContext context;
+        public EFPurchaseRepository(BookstoreContext temp)
+        {
+            context = temp;
+        }
+
         public IQueryable<Purchase> Purchases => context.Purchases.Include(x => x.Lines).ThenInclude(x => x.Book);
 
         public void SavePurchase(Purchase purchase)
