@@ -32,7 +32,5 @@ namespace Mission9.Models
         public string Zip { get; set; }
         [Required(ErrorMessage = "Please Enter a Country")]
         public string Country { get; set; }
-
-        public bool Anonymous { get; set; }
     }
 }
