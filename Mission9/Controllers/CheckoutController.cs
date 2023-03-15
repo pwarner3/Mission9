@@ -37,7 +37,7 @@ namespace Mission9.Controllers
                 repo.SavePurchase(purchase);
                 basket.ClearBasket();
 
-                return RedirectToPage("/DonationCompleted");
+                return RedirectToPage("/PurchaseCompleted");
             }
             else
             {
