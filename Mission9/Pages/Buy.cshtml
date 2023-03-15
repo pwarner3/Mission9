@@ -30,7 +30,7 @@
                     <td>@i.Book.Price</td>
                     <td>@(i.Quantity * i.Book.Price)</td>
 
-                    <td class="text-center">
+                    <td class="text-center" style="width:10%">
                         <form method="post" asp-page-handler="Remove">
                             <input type="hidden" name="bookId" value="@i.Book.BookId" />
                             <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
