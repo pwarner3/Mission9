@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - Mission11</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -28,6 +29,10 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
+                </div>
+                @* Cart Summary *@
+                <div class="bg-dark text-white p-0 m-0">
+                    <vc:cart-summary />
                 </div>
             </div>
         </nav>
