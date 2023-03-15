@@ -9,11 +9,13 @@ namespace Mission9.Controllers
 {
     public class CheckoutController : Controller
     {
+        private IPurchaseRepository repo { get; set; }
         private Basket basket { get; set; }
 
-        public CheckoutController()
+        public CheckoutController(IPurchaseRepository temp, Basket b)
         {
-
+            repo = temp;
+            basket = b;
         }
 
         [HttpGet]
@@ -32,7 +34,7 @@ namespace Mission9.Controllers
             if (ModelState.IsValid)
             {
                 purchase.Lines = basket.Items.ToArray();
-                repo.SaveDonation(purchase);
+                repo.SavePurchase(purchase);
                 basket.ClearBasket();
 
                 return RedirectToPage("/DonationCompleted");

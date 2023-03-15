@@ -33,10 +33,13 @@ namespace Mission9
                 options.UseSqlite(Configuration["ConnectionStrings:BookstoreDBConnection"]);
             });
 
+            //Correspond to Repo files
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
+            services.AddScoped<IPurchaseRepository, EFPurchaseRepository>();
 
             services.AddRazorPages();
 
+            //For sessions
             services.AddDistributedMemoryCache();
             services.AddSession();
 
